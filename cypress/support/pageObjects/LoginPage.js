@@ -1,25 +1,19 @@
+import { loginSelectors } from "../lib/loginSelectors"
 class LoginPage {
-  emailField = "#email"
-  passwordField = "#pass"
-  signInButton = "#send2"
-  emailRequiredMessage = "#email-error"
-  passwordRequiredMessage = "#pass-error"
-  errorMessage = "[data-ui-id='message-error']"
-
   visitLogin() {
     cy.visit("/customer/account/login")
   }
 
   fillEmail(email) {
-    cy.get(this.emailField).type(email)
+    cy.get(loginSelectors.email).type(email)
   }
 
   fillPassword(password) {
-    cy.get(this.passwordField).type(password)
+    cy.get(loginSelectors.password).type(password)
   }
 
   clickSignIn() {
-    cy.get(this.signInButton).click()
+    cy.get(loginSelectors.signInButton).click()
   }
 
   login(email, password) {
@@ -29,15 +23,15 @@ class LoginPage {
   }
 
   emailRequiredMessageField() {
-    return cy.get(this.emailRequiredMessage)
+    return cy.get(loginSelectors.emailRequiredMessage)
   }
 
   passwordRequiredField() {
-    return cy.get(this.passwordRequiredMessage)
+    return cy.get(loginSelectors.passwordRequiredMessage)
   }
 
   errorMessageField() {
-    return cy.get(this.errorMessage)
+    return cy.get(loginSelectors.errorMessage)
   }
 }
 

@@ -1,97 +1,79 @@
+import { checkoutPageSelectors } from "../lib/checkoutSelectors"
 class CheckoutPage {
-  productSelector = ".product-item-photo"
-  sizeSelector = "#option-label-size-143-item-168"
-  colorSelector = "#option-label-color-93-item-57"
-  quantitySelector = "#qty"
-  addToCartSelector = "#product-addtocart-button"
-  cartButtonSelector = "a.action.showcart"
-  proceedToCheckoutSelector = "#top-cart-btn-checkout"
-  modalSelector = "#ui-id-1"
-  emailSelector = "#customer-email"
-  firstNameSelector = "[name='firstname']"
-  lastNameSelector = "[name='lastname']"
-  streetAdressSelector = "[name='street[0]']"
-  citySelector = '[name="city"]'
-  countrySelector = '[name="country_id"]'
-  postCodeSelector = '[name="postcode"]'
-  StateSelector = '[name="shippingAddress.region_id"] > div > select'
-  phoneSelector = '[name="telephone"]'
-  nextButtonSelector = "button[data-role='opc-continue']"
-
   selectProduct() {
-    return cy.get(this.productSelector)
+    return cy.get(checkoutPageSelectors.product)
   }
 
   selectSize() {
-    return cy.get(this.sizeSelector)
+    return cy.get(checkoutPageSelectors.size)
   }
 
   selectColor() {
-    return cy.get(this.colorSelector)
+    return cy.get(checkoutPageSelectors.color)
   }
 
   selectQuantity(desiredQuantity) {
-    cy.get(this.quantitySelector).clear().type(desiredQuantity)
+    cy.get(checkoutPageSelectors.quantity).clear().type(desiredQuantity)
   }
 
   addToCartButton() {
-    return cy.get(this.addToCartSelector)
+    return cy.get(checkoutPageSelectors.addToCart)
   }
 
   cartButtonIcon() {
-    return cy.get(this.cartButtonSelector)
+    return cy.get(checkoutPageSelectors.cartButton)
   }
 
   proceedToCheckoutButton() {
-    return cy.get(this.proceedToCheckoutSelector)
+    return cy.get(checkoutPageSelectors.proceedToCheckout)
   }
 
   checkoutModal() {
-    return cy.get(this.modalSelector)
+    return cy.get(checkoutPageSelectors.modal)
   }
 
   selectEmail() {
-    return cy.get(this.emailSelector)
+    return cy.get(checkoutPageSelectors.email)
   }
 
   selectFirstName() {
-    return cy.get(this.firstNameSelector)
+    return cy.get(checkoutPageSelectors.firstName)
   }
 
   selectLastName() {
-    return cy.get(this.lastNameSelector)
+    return cy.get(checkoutPageSelectors.lastName)
   }
 
   selectStreetAdress() {
-    return cy.get(this.streetAdressSelector)
+    return cy.get(checkoutPageSelectors.streetAdress)
   }
 
   selectCity() {
-    return cy.get(this.citySelector)
+    return cy.get(checkoutPageSelectors.city)
   }
 
   selectCountry() {
-    return cy.get(this.countrySelector)
+    return cy.get(checkoutPageSelectors.country)
   }
 
   selectPostCode() {
-    return cy.get(this.postCodeSelector)
+    return cy.get(checkoutPageSelectors.postCode)
   }
 
   selectState() {
-    return cy.get(this.StateSelector)
+    return cy.get(checkoutPageSelectors.state)
   }
 
   selectPhone() {
-    return cy.get(this.phoneSelector)
+    return cy.get(checkoutPageSelectors.phone)
   }
 
   nextButton() {
-    return cy.get(this.nextButtonSelector)
+    return cy.get(checkoutPageSelectors.nextButton)
   }
 
   placeOrderButton() {
-    return cy.get("button.action.primary.checkout")
+    return cy.get(checkoutPageSelectors.placeOrderButton)
   }
 }
 
