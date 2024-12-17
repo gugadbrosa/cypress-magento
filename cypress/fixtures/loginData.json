@@ -1,0 +1,12 @@
+{
+  "validUser": {
+    "email": "gustavo@test.com",
+    "password": "Tester10!"
+  },
+
+  "invalidUser": {
+    "email": "wrong@wronger.com",
+    "password": "unavailable",
+    "errorMessage": "The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later."
+  }
+}

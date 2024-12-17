@@ -1,0 +1,64 @@
+name: e2e
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  cypress-run-chrome:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests on Chrome
+        run: npx cypress run --browser chrome
+
+      - name: Upload Cypress test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-chrome-results
+          path: |
+            cypress/screenshots
+            cypress/videos
+            cypress/reports
+
+  cypress-run-firefox:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests on Firefox
+        run: npx cypress run --browser firefox
+
+      - name: Upload Cypress test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-firefox-results
+          path: |
+            cypress/screenshots
+            cypress/videos
+            cypress/reports

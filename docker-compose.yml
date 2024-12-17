@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  cypress:
+    build: .
+    container_name: cypress-tests
+    working_dir: /cypress-magento
+    volumes:
+      - .:/cypress-magento
+      - ~/.cache/Cypress:/root/.cache/Cypress # Cache Cypress binary to avoid re-downloading
+    environment:
+      - CYPRESS_CACHE_FOLDER=/root/.cache/Cypress # Set Cypress cache path
+    command: ["npx", "cypress", "run"]

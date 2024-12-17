@@ -1,0 +1,7 @@
+#dependencies
+/node_modules
+
+#testing
+/cypress/screenshots
+/cypress/videos
+/cypress/reports
